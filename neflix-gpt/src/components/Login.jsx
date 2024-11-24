@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { NETFLIX_BACKGROUND } from "../utils/constants";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ const Login = () => {
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
     if (message !== null) return;
-    console.log("After Message");
     if (!isSignInForm) {
       // sign up
       createUserWithEmailAndPassword(
@@ -46,12 +46,9 @@ const Login = () => {
               // ...
             })
             .catch((error) => {
-              // An error occurred
               navigate("/error")
-              // ...
             });
 
-          console.log(user);
           navigate("/browse");
         })
         .catch((error) => {
@@ -84,7 +81,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/03ad76d1-e184-4d99-ae7d-708672fa1ac2/web/IN-en-20241111-TRIFECTA-perspective_149877ab-fcbd-4e4f-a885-8d6174a1ee81_large.jpg"
+          src= {NETFLIX_BACKGROUND}
           alt="Login-bg-img"
         />
       </div>
