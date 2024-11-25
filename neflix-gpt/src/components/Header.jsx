@@ -48,9 +48,9 @@ export const Header = () => {
   }, []);
   
   return (
-    <div className="w-screen absolute bg-gradient-to-b from-black px-8 py-4 z-10 flex justify-between ">
+    <div className="w-screen absolute bg-gradient-to-r from-black px-8 py-4 z-10 flex justify-between ">
       <img
-        className="w-48"
+        className="w-36"
         src= {NETFLIX_LOGO}
         alt="Netfli Logo"
       />

@@ -11,6 +11,18 @@ Netflix Application with ReactJs.
 - Firebase setup
 - Deploying app 
 - Create Sign up user Account 
+- Implement sign in user API 
+- Create redux store with userSlice
+- Implement sign out 
+- Update profile 
+- Update hardcoded values in constants
+- Register TMDB api and create app & access token
+- Get data from TMDB now playing movies list 
+- Create movie slice
+- Update store with movie data 
+- Fetch data for Trailer video
+- Update store with trailer video 
+- Embedd youtube video with autoplay & mute 
 
 # FEATURES 
 - Login / Sign Up 
