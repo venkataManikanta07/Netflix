@@ -2,7 +2,6 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
-  console.log("movies", movies);
   if (!movies) return;
   return (
     <div className="bg-transparent relative z-30 p-4">
