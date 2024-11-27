@@ -23,6 +23,11 @@ Netflix Application with ReactJs.
 - Fetch data for Trailer video
 - Update store with trailer video 
 - Embedd youtube video with autoplay & mute 
+- Devloped MovieCard & Movie Slice
+- Fetched some popular and top rated movies using custom hooks
+- Gpt search page 
+- Gpt search bar 
+- Added multi language for gpt search page 
 
 # FEATURES 
 - Login / Sign Up 
