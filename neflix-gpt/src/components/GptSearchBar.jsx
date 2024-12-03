@@ -37,13 +37,15 @@ export const GptSearchBar = () => {
     const moviesArray = moviesList.map((movie) => searchMovieTMDB(movie));
     const tmdbResults = await Promise.all(moviesArray);
     console.log(tmdbResults);
-    dispatch(addGptMovieResult({movieNames: moviesList, tmdbResults: tmdbResults}));
+    dispatch(
+      addGptMovieResult({ movieNames: moviesList, tmdbResults: tmdbResults })
+    );
   };
   return (
-    <div className=" pt-[10%] flex justify-center">
+    <div className="md:pt-[10%] md:flex md:justify-center">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="bg-black p-6 border rounded-md border-black w-2/4 grid grid-cols-12"
+        className="md:bg-black md:p-6 border rounded-md border-black md:w-2/4 md:grid md:grid-cols-12 mt-[-739px] ml-[47px] md:ml-0 md:mt-0"
       >
         <input
           className="rounded-sm px-4 py-2 col-span-9 mr-4"

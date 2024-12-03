@@ -28,6 +28,12 @@ Netflix Application with ReactJs.
 - Gpt search page 
 - Gpt search bar 
 - Added multi language for gpt search page 
+- AI key from Gemini 
+- Fetched GPT movies from TMBD 
+- Create Gpt slice 
+- Added .env file 
+- Memoization 
+- Responsive website. 
 
 # FEATURES 
 - Login / Sign Up 

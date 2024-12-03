@@ -6,8 +6,12 @@ import { NETFLIX_BACKGROUND } from "../utils/constants";
 const GptSearch = () => {
   return (
     <div>
-      <div className="fixed -z-40">
-        <img src={NETFLIX_BACKGROUND} alt="Login-bg-img" />
+      <div className="md:fixed md:-z-40 ">
+        <img
+          src={NETFLIX_BACKGROUND}
+          className="h-screen object-cover md:h-auto"
+          alt="Login-bg-img"
+        />
       </div>
       <GptSearchBar />
       <GptMovieSuggestion />

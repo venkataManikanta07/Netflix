@@ -42,11 +42,11 @@ const Login = () => {
           })
             .then(() => {
               // Profile updated!
-              navigate("/browse")
+              navigate("/browse");
               // ...
             })
             .catch((error) => {
-              navigate("/error")
+              navigate("/error");
             });
 
           navigate("/browse");
@@ -79,14 +79,15 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute">
+      <div className="fixed">
         <img
-          src= {NETFLIX_BACKGROUND}
+          className="h-screen md:h-auto object-cover md:object-cover"
+          src={NETFLIX_BACKGROUND}
           alt="Login-bg-img"
         />
       </div>
       <form
-        className="flex flex-col m-auto right-0 left-0 absolute mt-32 bg-black opacity-95  w-3/12 h-auto text-white p-12"
+        className="mt-[215px] flex flex-col m-auto  md:right-0 right-0 left-0 md:left-0 fixed md:mt-32 bg-black opacity-95 w-10/12 md:w-3/12 md:h-auto text-white p-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="font-bold text-3xl">

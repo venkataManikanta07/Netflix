@@ -60,13 +60,20 @@ export const Header = () => {
   };
 
   return (
-    <div className="w-screen absolute bg-gradient-to-b from-black px-8 py-4 z-10 flex justify-between ">
-      <img className="w-36" src={NETFLIX_LOGO} alt="Netflix Logo" />
+    <div className="md:w-screen w-screen absolute bg-gradient-to-b from-black z-10 md:justify-between md:flex md:flex-row flex flex-col ml-0">
+      <img
+        className="w-24 m-3 md:ml-0 object-contain md:w-36"
+        src={NETFLIX_LOGO}
+        alt="Netflix Logo"
+      />
       {user && (
-        <div className="flex items-center p-4">
+        <div className="flex justify-end items-center p-4 -mt-16 ml-3 md:mt-0">
           {showGptSearch && (
             <select
-              className="mx-4 my-2 p-2 border rounded-lg bg-gray-800 border-gray-700 text-white"
+              className={
+                (showGptSearch ? "inline-block" : "invisible") +
+                " md:mx-4 mx-2 md:my-2 my-1 md:p-2 text-xs md:text-base p-1 border rounded-lg bg-gray-800 border-gray-700 text-white"
+              }
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((language) => (
@@ -75,18 +82,18 @@ export const Header = () => {
             </select>
           )}
           <button
-            className="bg-purple-800 text-white border rounded-sm border-purple-600 mx-4 my-2 p-2"
+            className="bg-purple-800 text-white border rounded-sm border-purple-600 mx-3 md:mx-4 my-0 md:my-2  md:text-base text-sm w-20 md:w-28 h-9"
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Home Page" : "Gpt-Search"}
           </button>
           <img
-            className="w-10 h-10 border-transparent mr-4"
+            className="md:w-10 md:h-10 md:border-transparent md:mr-0 hidden md:inline-block"
             src={user.photoURL ? user.photoURL : USER_LOGIN_LOGO}
             alt="profile image"
           />
           <button
-            className="bg-red-800 font-semibold my-2 p-2 text-white border rounded-md border-transparent"
+            className="bg-red-800 font-semibold text-white border rounded-md border-transparent mx-3 md:mx-4 my-0 md:my-2  md:text-base md:p-0 text-sm w-20 md:w-28 h-9"
             onClick={handleSignOut}
           >
             Sign Out
