@@ -27,20 +27,37 @@ export const GptSearchBar = () => {
     }
   };
   const handleGptSearchClick = async () => {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const prompt =
-      "Act as a movie suggestion website and output the results of top 5 movies and only give the movei name this ex: Movie1, Movie2, Movie3, Movie4, Movie5" +
-      searchText.current.value;
+    console.log("Inside Click");
+    try {
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const prompt =
+        "Act as a movie suggestion website and output the results of the top 5 movies and only give the movie names like this: Movie1, Movie2, Movie3, Movie4, Movie5." +
+        searchText.current.value;
 
-    const result = await model.generateContent([prompt]);
-    const moviesList = result.response.text().split(",");
-    const moviesArray = moviesList.map((movie) => searchMovieTMDB(movie));
-    const tmdbResults = await Promise.all(moviesArray);
-    console.log(tmdbResults);
-    dispatch(
-      addGptMovieResult({ movieNames: moviesList, tmdbResults: tmdbResults })
-    );
+      const result = await model.generateContent([prompt]).catch((error) => {
+        console.warn("API limit reached, using fallback data.");
+        return {
+          response: {
+            text: () => "Inception, Avatar, Titanic, Interstellar, Gladiator",
+          },
+        };
+      });
+
+      const responseText = result.response.text();
+      const moviesList = responseText.split(",").map((movie) => movie.trim());
+
+      const moviesArray = moviesList.map((movie) => searchMovieTMDB(movie));
+      const tmdbResults = await Promise.all(moviesArray);
+
+      console.log(tmdbResults);
+      dispatch(
+        addGptMovieResult({ movieNames: moviesList, tmdbResults: tmdbResults })
+      );
+    } catch (error) {
+      console.error("Error occurred during GPT search:", error);
+    }
   };
+
   return (
     <div className="md:pt-[10%] md:flex md:justify-center">
       <form

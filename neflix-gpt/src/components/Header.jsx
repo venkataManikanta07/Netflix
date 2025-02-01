@@ -76,8 +76,8 @@ export const Header = () => {
               }
               onChange={handleLanguageChange}
             >
-              {SUPPORTED_LANGUAGES.map((language) => (
-                <option value={language.identifier}>{language.name}</option>
+              {SUPPORTED_LANGUAGES.map((language, index) => (
+                <option key={index} value={language.identifier}>{language.name}</option>
               ))}
             </select>
           )}
