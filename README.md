@@ -47,6 +47,6 @@ Netflix Application with ReactJs.
         - Title & Description 
         - Movie suggestions 
             - Movies list * N
-- Netflix Gpr
+- Netflix Gpt
     - Search Bar 
     - Movie Suggestions. 
